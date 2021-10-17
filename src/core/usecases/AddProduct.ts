@@ -1,4 +1,4 @@
-import { AddProductModel, AddProductRepository } from '../repository/AddProductRepository'
+import { AddProductModel, AddProductRepository } from '../repositories/AddProductRepository'
 
 export class AddProduct {
   private readonly addProductRepository: AddProductRepository
