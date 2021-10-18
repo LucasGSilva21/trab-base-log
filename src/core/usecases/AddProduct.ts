@@ -7,7 +7,7 @@ export class AddProduct {
     this.addProductRepository = addProductRepository
   }
 
-  async execute (addProductModel: AddProductModel) {
+  async add (addProductModel: AddProductModel) {
     const product = await this.addProductRepository.add(addProductModel)
 
     return product
