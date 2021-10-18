@@ -1,6 +1,6 @@
 import { HttpRequest, HttpResponse, Controller } from '../protocols'
 import { AddProduct } from '../../core/usecases/AddProduct'
-import { MissingParamError } from '../errors'
+import { MissingParamError } from '../../utils/errors'
 import { ok, badRequest, serverError } from '../helpers/http-helper'
 
 export class AddProductController implements Controller {
