@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/main/server.ts"
+    "start:dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/main/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "migrate": "npm run typeorm migration:run",
+    "migration:create": "typeorm migration:create -n"
   },
   "keywords": [],
   "author": "",
