@@ -9,10 +9,10 @@ export class PgProduct extends BaseEntity {
   @Column({ nullable: true })
   description?: string
 
-  @Column({ type: 'decimal' })
+  @Column({ name: 'purchase_price', type: 'decimal' })
   purchasePrice: number
 
-  @Column({ type: 'decimal' })
+  @Column({ name: 'sale_price', type: 'decimal' })
   salePrice: number
 
   @Column()
