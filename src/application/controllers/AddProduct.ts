@@ -27,7 +27,7 @@ export class AddProductController implements Controller {
         description,
         purchasePrice,
         salePrice,
-        quantity 
+        quantity
       })
 
       return ok(product)
