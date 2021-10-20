@@ -15,7 +15,7 @@ export class AddProductController implements Controller {
       const requiredFields = ['name', 'description', 'purchasePrice', 'salePrice', 'quantity']
 
       for (const field of requiredFields) {
-        if (!httpRequest.body[field]) {
+        if (httpRequest.body[field] === undefined) {
           return badRequest(new MissingParamError(field))
         }
       }
