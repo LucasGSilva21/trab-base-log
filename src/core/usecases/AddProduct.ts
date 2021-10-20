@@ -1,21 +1,24 @@
 import { AddProductModel, AddProductRepository } from '../repositories/AddProductRepository'
 import { ProductModel } from '../models/Product'
-import { InvalidParamError } from '../../utils/errors'
+import { AddProductValidator } from '../validators/AddProductValidator'
 
 export class AddProduct {
   private readonly addProductRepository: AddProductRepository
+  private readonly addProductValidator: AddProductValidator
 
-  constructor (addProductRepository: AddProductRepository) {
+  constructor (
+    addProductRepository: AddProductRepository,
+    addProductValidator: AddProductValidator
+  ) {
     this.addProductRepository = addProductRepository
+    this.addProductValidator = addProductValidator
   }
 
   async add (addProductModel: AddProductModel): Promise<ProductModel> {
-    if (addProductModel.quantity < 0) {
-      throw new InvalidParamError('quantity')
-    }
+    const error = this.addProductValidator.validate(addProductModel)
 
-    if (addProductModel.purchasePrice > addProductModel.salePrice) {
-      throw new InvalidParamError('purchasePrice')
+    if (error) {
+      throw error
     }
 
     const product = await this.addProductRepository.add(addProductModel)
