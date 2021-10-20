@@ -13,12 +13,18 @@ export const created = (data: any): HttpResponse => ({
 
 export const badRequest = (error: Error): HttpResponse => ({
   statusCode: 400,
-  body: error
+  body: {
+    name: error.name,
+    message: error.message
+  }
 })
 
 export const notFound = (error: Error): HttpResponse => ({
   statusCode: 404,
-  body: error
+  body: {
+    name: error.name,
+    message: error.message
+  }
 })
 
 export const serverError = (error: Error): HttpResponse => ({

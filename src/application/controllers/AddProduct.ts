@@ -32,6 +32,10 @@ export class AddProductController implements Controller {
 
       return ok(product)
     } catch (error) {
+      if (error.name === 'InvalidParamError') {
+        return badRequest(error)
+      }
+
       return serverError(error)
     }
   }
