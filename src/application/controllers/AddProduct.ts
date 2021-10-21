@@ -1,6 +1,5 @@
 import { HttpRequest, HttpResponse, Controller } from '../protocols'
 import { AddProduct } from '../../core/usecases/AddProduct'
-import { MissingParamError } from '../../utils/errors'
 import { ok, badRequest, serverError } from '../helpers/http-helper'
 
 export class AddProductController implements Controller {
@@ -12,14 +11,6 @@ export class AddProductController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['name', 'description', 'purchasePrice', 'salePrice', 'quantity']
-
-      for (const field of requiredFields) {
-        if (httpRequest.body[field] === undefined) {
-          return badRequest(new MissingParamError(field))
-        }
-      }
-
       const { name, description, purchasePrice, salePrice, quantity } = httpRequest.body
 
       const product = await this.addProduct.add({
@@ -32,9 +23,11 @@ export class AddProductController implements Controller {
 
       return ok(product)
     } catch (error) {
-      if (error.name === 'InvalidParamError') {
+      if (error.name === 'InvalidParamError' || error.name === 'MissingParamError') {
         return badRequest(error)
       }
+
+      console.log(error)
 
       return serverError(error)
     }
