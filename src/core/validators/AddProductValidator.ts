@@ -12,10 +12,28 @@ export class AddProductValidator implements Validator {
       }
     }
 
-    if (addProductModel.quantity < 0) {
+    if (isNaN(addProductModel.purchasePrice)) {
+      throw new InvalidParamError(
+        'purchasePrice',
+        'Purchase price must be a number'
+      )
+    }
+
+    if (isNaN(addProductModel.salePrice)) {
+      throw new InvalidParamError(
+        'salePrice',
+        'Sale price must be a number'
+      )
+    }
+
+    if (
+      isNaN(addProductModel.quantity) ||
+      !Number.isInteger(addProductModel.quantity) ||
+      addProductModel.quantity < 0
+    ) {
       throw new InvalidParamError(
         'quantity',
-        'Quantity must be greater than or equal to 0'
+        'The quantity must be a positive integer'
       )
     }
 
