@@ -13,11 +13,17 @@ export class AddProductValidator implements Validator {
     }
 
     if (addProductModel.quantity < 0) {
-      throw new InvalidParamError('quantity')
+      throw new InvalidParamError(
+        'quantity',
+        'Quantity must be greater than or equal to 0'
+      )
     }
 
     if (addProductModel.purchasePrice > addProductModel.salePrice) {
-      throw new InvalidParamError('purchasePrice')
+      throw new InvalidParamError(
+        'purchasePrice',
+        'Sale price must be greater than to purchase price'
+      )
     }
 
     return undefined
