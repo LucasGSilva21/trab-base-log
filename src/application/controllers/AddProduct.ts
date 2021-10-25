@@ -1,5 +1,5 @@
 import { HttpRequest, HttpResponse, Controller } from '../protocols'
-import { AddProduct } from '../../core/usecases/AddProduct'
+import { AddProduct } from '../../domain/usecases/AddProduct'
 import { ok, badRequest, serverError } from '../helpers/http-helper'
 
 export class AddProductController implements Controller {

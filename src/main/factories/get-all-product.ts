@@ -1,6 +1,6 @@
 import { GetAllProductController } from '../../application/controllers/GetAllProduct'
 import { Controller } from '../../application/protocols'
-import { GetAllProduct } from '../../core/usecases/GetAllProduct'
+import { GetAllProduct } from '../../domain/usecases/GetAllProduct'
 import { PgGetAllProductRepository } from '../../infra/databases/postgres/repositories/GetAllProductRepo'
 
 export const makeGetAllProductController = (): Controller => {

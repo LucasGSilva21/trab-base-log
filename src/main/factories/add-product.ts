@@ -1,7 +1,7 @@
 import { AddProductController } from '../../application/controllers/AddProduct'
 import { Controller } from '../../application/protocols'
-import { AddProduct } from '../../core/usecases/AddProduct'
-import { AddProductValidator } from '../../core/validators/AddProductValidator'
+import { AddProduct } from '../../domain/usecases/AddProduct'
+import { AddProductValidator } from '../../domain/validators/AddProductValidator'
 import { PgAddProductRepository } from '../../infra/databases/postgres/repositories/AddPoductRepo'
 
 export const makeAddProductController = (): Controller => {

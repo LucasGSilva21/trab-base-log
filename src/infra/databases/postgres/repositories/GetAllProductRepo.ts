@@ -1,5 +1,5 @@
-import { ProductModel } from '../../../../core/models/Product'
-import { GetAllProductRepository } from '../../../../core/repositories/GetAllProductRepository'
+import { ProductModel } from '../../../../domain/models/Product'
+import { GetAllProductRepository } from '../../../../domain/repositories/GetAllProductRepository'
 import { PgRepository } from '../helpers/repository'
 import { PgProduct } from '../entities'
 

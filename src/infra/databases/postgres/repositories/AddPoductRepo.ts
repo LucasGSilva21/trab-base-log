@@ -1,5 +1,5 @@
-import { ProductModel } from '../../../../core/models/Product'
-import { AddProductModel, AddProductRepository } from '../../../../core/repositories/AddProductRepository'
+import { ProductModel } from '../../../../domain/models/Product'
+import { AddProductModel, AddProductRepository } from '../../../../domain/repositories/AddProductRepository'
 import { PgRepository } from '../helpers/repository'
 import { PgProduct } from '../entities'
 
