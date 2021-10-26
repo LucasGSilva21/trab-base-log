@@ -1,5 +1,5 @@
-import { GetAllProductController } from '../../application/controllers/GetAllProduct'
-import { Controller } from '../../application/protocols'
+import { GetAllProductController } from '../../presentation/controllers/GetAllProduct'
+import { Controller } from '../../presentation/protocols'
 import { GetAllProduct } from '../../domain/usecases/GetAllProduct'
 import { PgGetAllProductRepository } from '../../infra/databases/postgres/repositories/GetAllProductRepo'
 

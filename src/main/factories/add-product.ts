@@ -1,5 +1,5 @@
-import { AddProductController } from '../../application/controllers/AddProduct'
-import { Controller } from '../../application/protocols'
+import { AddProductController } from '../../presentation/controllers/AddProduct'
+import { Controller } from '../../presentation/protocols'
 import { AddProduct } from '../../domain/usecases/AddProduct'
 import { AddProductValidator } from '../../domain/validators/AddProductValidator'
 import { PgAddProductRepository } from '../../infra/databases/postgres/repositories/AddPoductRepo'
