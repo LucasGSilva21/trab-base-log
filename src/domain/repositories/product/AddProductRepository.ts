@@ -1,4 +1,4 @@
-import { ProductModel } from '../models/Product'
+import { ProductModel } from '../../models/Product'
 
 export interface AddProductModel {
   name: string

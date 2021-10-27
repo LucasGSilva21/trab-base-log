@@ -1,6 +1,6 @@
-import { AddProductModel, AddProductRepository } from '../repositories/AddProductRepository'
-import { ProductModel } from '../models/Product'
-import { AddProductValidator } from '../validators/AddProductValidator'
+import { AddProductModel, AddProductRepository } from '../../repositories/product'
+import { ProductModel } from '../../models/Product'
+import { AddProductValidator } from '../../validators/product'
 
 export class AddProduct {
   private readonly addProductRepository: AddProductRepository

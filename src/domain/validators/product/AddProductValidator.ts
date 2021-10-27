@@ -1,6 +1,6 @@
-import { Validator } from '../protocols'
-import { AddProductModel } from '../repositories/AddProductRepository'
-import { MissingParamError, InvalidParamError } from '../../utils/errors'
+import { Validator } from '../../protocols'
+import { AddProductModel } from '../../repositories/product'
+import { MissingParamError, InvalidParamError } from '../../../utils/errors'
 
 export class AddProductValidator implements Validator {
   validate (addProductModel: AddProductModel): Error | undefined {

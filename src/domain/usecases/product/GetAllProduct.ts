@@ -1,5 +1,5 @@
-import { GetAllProductRepository } from '../repositories/GetAllProductRepository'
-import { ProductModel } from '../models/Product'
+import { GetAllProductRepository } from '../../repositories/product'
+import { ProductModel } from '../../models/Product'
 
 export class GetAllProduct {
   private readonly getAllProductRepository: GetAllProductRepository
