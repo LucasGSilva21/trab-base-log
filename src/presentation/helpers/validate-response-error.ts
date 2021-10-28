@@ -1,5 +1,5 @@
 import { HttpResponse } from '../protocols'
-import { badRequest, serverError } from '../helpers/http-helper'
+import { badRequest, notFound, serverError } from '../helpers/http-helper'
 
 export const validateResponseError = (error: Error): HttpResponse => {
   console.log('Log Error: ', error)
@@ -9,6 +9,10 @@ export const validateResponseError = (error: Error): HttpResponse => {
     error.name === 'MissingParamError'
   ) {
     return badRequest(error)
+  }
+
+  if (error.name === 'NotFoundError') {
+    return notFound(error)
   }
 
   return serverError(error)
