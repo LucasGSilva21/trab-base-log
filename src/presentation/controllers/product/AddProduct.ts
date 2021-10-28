@@ -1,6 +1,7 @@
 import { HttpRequest, HttpResponse, Controller } from '../../protocols'
 import { AddProduct } from '../../../domain/usecases/product'
-import { ok, badRequest, serverError } from '../../helpers/http-helper'
+import { ok } from '../../helpers/http-helper'
+import { validateResponseError } from '../../helpers/validate-response-error'
 
 export class AddProductController implements Controller {
   private readonly addProduct: AddProduct
@@ -23,13 +24,7 @@ export class AddProductController implements Controller {
 
       return ok(product)
     } catch (error) {
-      if (error.name === 'InvalidParamError' || error.name === 'MissingParamError') {
-        return badRequest(error)
-      }
-
-      console.log(error)
-
-      return serverError(error)
+      return validateResponseError(error)
     }
   }
 }

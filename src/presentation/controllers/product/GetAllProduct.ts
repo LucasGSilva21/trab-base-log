@@ -1,6 +1,7 @@
 import { HttpRequest, HttpResponse, Controller } from '../../protocols'
 import { GetAllProduct } from '../../../domain/usecases/product'
-import { ok, serverError } from '../../helpers/http-helper'
+import { ok } from '../../helpers/http-helper'
+import { validateResponseError } from '../../helpers/validate-response-error'
 
 export class GetAllProductController implements Controller {
   private readonly getAllProduct: GetAllProduct
@@ -15,7 +16,7 @@ export class GetAllProductController implements Controller {
 
       return ok(products)
     } catch (error) {
-      return serverError(error)
+      return validateResponseError(error)
     }
   }
 }
