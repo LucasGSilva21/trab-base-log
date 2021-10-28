@@ -3,16 +3,16 @@ import { UUIDValidator } from '../../../utils/validators/protocols'
 import { InvalidParamError } from '../../../utils/errors'
 
 export class GetOneProductValidator implements Validator {
-  private readonly UUIDValidator: UUIDValidator
+  private readonly uUIDValidator: UUIDValidator
 
   constructor (
-    UUIDValidator: UUIDValidator
+    uUIDValidator: UUIDValidator
   ) {
-    this.UUIDValidator = UUIDValidator
+    this.uUIDValidator = uUIDValidator
   }
 
   validate (uuid: string): Error | undefined {
-    if (!this.UUIDValidator.isValid(uuid)) {
+    if (!this.uUIDValidator.isValid(uuid)) {
       throw new InvalidParamError(
         'id',
         'Id must be a valid uuid'
