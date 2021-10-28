@@ -14,7 +14,7 @@ export class GetOneProduct {
     this.getOneProductValidator = getOneProductValidator
   }
 
-  async getOne (id: string): Promise<ProductModel> {
+  async getOne (id: string): Promise<ProductModel | undefined> {
     const error = this.getOneProductValidator.validate(id)
 
     if (error) {
