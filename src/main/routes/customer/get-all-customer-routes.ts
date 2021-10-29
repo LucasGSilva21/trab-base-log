@@ -1,7 +1,7 @@
 import { Router } from 'express'
-import { makeAddClientController } from '../../factories/client'
+import { makeGetAllCustomerController } from '../../factories/customer'
 import { adaptRoute } from '../../adapters/express-route-adapter'
 
 export default (router: Router): void => {
-  router.post('/clients', adaptRoute(makeAddClientController()))
+  router.get('/customers', adaptRoute(makeGetAllCustomerController()))
 }

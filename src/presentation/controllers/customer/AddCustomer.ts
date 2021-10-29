@@ -1,13 +1,13 @@
 import { HttpRequest, HttpResponse, Controller } from '../../protocols'
-import { AddClient } from '../../../domain/usecases/client'
+import { AddCustomer } from '../../../domain/usecases/customer'
 import { ok } from '../../helpers/http-helper'
 import { validateResponseError } from '../../helpers/validate-response-error'
 
-export class AddClientController implements Controller {
-  private readonly addClient: AddClient
+export class AddCustomerController implements Controller {
+  private readonly addCustomer: AddCustomer
 
-  constructor (addClient: AddClient) {
-    this.addClient = addClient
+  constructor (addCustomer: AddCustomer) {
+    this.addCustomer = addCustomer
   }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
@@ -22,7 +22,7 @@ export class AddClientController implements Controller {
         address
       } = httpRequest.body
 
-      const client = await this.addClient.add({
+      const customer = await this.addCustomer.add({
         name,
         email,
         cpf,
@@ -32,7 +32,7 @@ export class AddClientController implements Controller {
         address
       })
 
-      return ok(client)
+      return ok(customer)
     } catch (error) {
       return validateResponseError(error)
     }

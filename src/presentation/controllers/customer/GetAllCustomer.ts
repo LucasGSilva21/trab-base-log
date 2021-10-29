@@ -1,20 +1,20 @@
 import { HttpRequest, HttpResponse, Controller } from '../../protocols'
-import { GetAllClient } from '../../../domain/usecases/client'
+import { GetAllCustomer } from '../../../domain/usecases/customer'
 import { ok } from '../../helpers/http-helper'
 import { validateResponseError } from '../../helpers/validate-response-error'
 
-export class GetAllClientController implements Controller {
-  private readonly getAllClient: GetAllClient
+export class GetAllCustomerController implements Controller {
+  private readonly getAllCustomer: GetAllCustomer
 
-  constructor (getAllClient: GetAllClient) {
-    this.getAllClient = getAllClient
+  constructor (getAllCustomer: GetAllCustomer) {
+    this.getAllCustomer = getAllCustomer
   }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const clients = await this.getAllClient.getAll()
+      const customers = await this.getAllCustomer.getAll()
 
-      return ok(clients)
+      return ok(customers)
     } catch (error) {
       return validateResponseError(error)
     }

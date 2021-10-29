@@ -1,6 +1,6 @@
 import { Gender } from '../protocols'
 
-export class ClientModel {
+export class CustomerModel {
   id: string
   name: string
   email: string

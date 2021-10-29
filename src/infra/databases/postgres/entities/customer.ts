@@ -2,8 +2,8 @@ import { Entity, Column } from 'typeorm'
 import { BaseEntity } from '../helpers/base-entity'
 import { Gender } from '../../../../domain/protocols'
 
-@Entity({ name: 'clients' })
-export class PgClient extends BaseEntity {
+@Entity({ name: 'customers' })
+export class PgCustomer extends BaseEntity {
   @Column()
   name: string
 
@@ -13,7 +13,7 @@ export class PgClient extends BaseEntity {
   @Column()
   cpf: string
 
-  @Column()
+  @Column({ name: 'birth_date' })
   birthDate: Date
 
   @Column({ type: 'varchar' })

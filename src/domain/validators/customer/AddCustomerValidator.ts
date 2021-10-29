@@ -1,9 +1,9 @@
 import { Validator } from '../../protocols'
-import { AddClientModel } from '../../repositories/client'
+import { AddCustomerModel } from '../../repositories/customer'
 import { MissingParamError, InvalidParamError } from '../../../utils/errors'
 import { EmailValidator } from '../../../utils/validators/protocols'
 
-export class AddClientValidator implements Validator {
+export class AddCustomerValidator implements Validator {
   private readonly emailValidator: EmailValidator
 
   constructor (
@@ -12,16 +12,16 @@ export class AddClientValidator implements Validator {
     this.emailValidator = emailValidator
   }
 
-  validate (addClientModel: AddClientModel): Error | undefined {
+  validate (addCustomerModel: AddCustomerModel): Error | undefined {
     const requiredFields = ['name', 'email', 'cpf', 'birthDate', 'gender', 'phone', 'address']
 
     for (const field of requiredFields) {
-      if (addClientModel[field] === undefined) {
+      if (addCustomerModel[field] === undefined) {
         throw new MissingParamError(field)
       }
     }
 
-    if (!this.emailValidator.isValid(addClientModel.email)) {
+    if (!this.emailValidator.isValid(addCustomerModel.email)) {
       throw new InvalidParamError(
         'email',
         'invalid email'
