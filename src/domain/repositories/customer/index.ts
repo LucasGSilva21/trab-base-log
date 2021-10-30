@@ -1,2 +1,3 @@
 export * from './AddCustomerRepository'
 export * from './GetAllCustomerRepository'
+export * from './GetOneCustomerRepository'
