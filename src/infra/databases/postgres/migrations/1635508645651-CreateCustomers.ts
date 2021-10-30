@@ -37,7 +37,8 @@ export class CreateCustomers1635508645651 implements MigrationInterface {
           },
           {
             name: 'phone',
-            type: 'varchar'
+            type: 'varchar',
+            isUnique: true
           },
           {
             name: 'address',
