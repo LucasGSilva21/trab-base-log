@@ -6,8 +6,8 @@ import { PgUpdateProductRepository, PgGetOneProductRepository } from '../../../i
 import { UUIDValidatorAdapter } from '../../../utils/validators/adapters'
 
 export const makeUpdateProductController = (): Controller => {
-  const pgUpdateProductRepository = new PgUpdateProductRepository()
   const uUIDValidatorAdapter = new UUIDValidatorAdapter()
+  const pgUpdateProductRepository = new PgUpdateProductRepository(uUIDValidatorAdapter)
   const pgGetOneProductRepository = new PgGetOneProductRepository(uUIDValidatorAdapter)
   const updateProductValidator = new UpdateProductValidator()
   const updateProduct = new UpdateProduct(pgUpdateProductRepository, pgGetOneProductRepository, updateProductValidator)
