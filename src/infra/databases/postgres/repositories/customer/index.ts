@@ -1,4 +1,5 @@
 export * from './AddCustomerRepo'
 export * from './GetAllCustomerRepo'
 export * from './GetOneCustomerRepo'
+export * from './UpdateCustomerRepo'
 export * from './DeleteCustomerRepo'

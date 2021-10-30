@@ -1,4 +1,5 @@
 export * from './AddCustomerRepository'
 export * from './GetAllCustomerRepository'
 export * from './GetOneCustomerRepository'
+export * from './UpdateCustomerRepository'
 export * from './DeleteCustomerRepository'
