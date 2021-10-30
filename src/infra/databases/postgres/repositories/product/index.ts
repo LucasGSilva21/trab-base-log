@@ -1,4 +1,5 @@
 export * from './AddPoductRepo'
 export * from './GetAllProductRepo'
 export * from './GetOneProductRepo'
+export * from './UpdateProductRepo'
 export * from './DeleteProductRepo'

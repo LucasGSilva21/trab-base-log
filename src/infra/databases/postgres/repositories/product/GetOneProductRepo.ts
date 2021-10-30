@@ -13,7 +13,7 @@ export class PgGetOneProductRepository extends PgRepository implements GetOnePro
     this.uUIDValidator = uUIDValidator
   }
 
-  async getOne (id: string): Promise<ProductModel | undefined> {
+  async getOne (id: string): Promise<ProductModel> {
     if (!this.uUIDValidator.isValid(id)) {
       throw new InvalidParamError(
         'id',

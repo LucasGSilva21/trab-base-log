@@ -1,3 +1,3 @@
 export interface Validator {
-  validate(data: any): Error | undefined
+  validate(data: any, model?: any): Error | undefined
 }

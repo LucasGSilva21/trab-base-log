@@ -8,7 +8,7 @@ export class GetOneProduct {
     this.getOneProductRepository = getOneProductRepository
   }
 
-  async getOne (id: string): Promise<ProductModel | undefined> {
+  async getOne (id: string): Promise<ProductModel> {
     const product = await this.getOneProductRepository.getOne(id)
 
     return product

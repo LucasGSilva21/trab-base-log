@@ -1,4 +1,5 @@
 export * from './AddProduct'
 export * from './GetAllProduct'
 export * from './GetOneProduct'
+export * from './UpdateProduct'
 export * from './DeleteProduct'
