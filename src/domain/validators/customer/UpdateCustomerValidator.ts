@@ -1,15 +1,18 @@
 import { Validator, Gender } from '../../protocols'
 import { UpdateCustomerModel } from '../../repositories/customer'
 import { InvalidParamError } from '../../../utils/errors'
-import { EmailValidator } from '../../../utils/validators/protocols'
+import { EmailValidator, PhoneValidator } from '../../../utils/validators/protocols'
 
 export class UpdateCustomerValidator implements Validator {
   private readonly emailValidator: EmailValidator
+  private readonly phoneValidator: PhoneValidator
 
   constructor (
-    emailValidator: EmailValidator
+    emailValidator: EmailValidator,
+    phoneValidator: PhoneValidator
   ) {
     this.emailValidator = emailValidator
+    this.phoneValidator = phoneValidator
   }
 
   validate (updateCustomerModel: UpdateCustomerModel): Error | undefined {
@@ -40,6 +43,16 @@ export class UpdateCustomerValidator implements Validator {
       throw new InvalidParamError(
         'email',
         'invalid email'
+      )
+    }
+
+    if (
+      updateCustomerModel.phone &&
+      !this.phoneValidator.isValid(updateCustomerModel.phone)
+    ) {
+      throw new InvalidParamError(
+        'phone',
+        'invalid phone'
       )
     }
 
