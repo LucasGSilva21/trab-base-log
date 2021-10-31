@@ -19,9 +19,9 @@ export class PgSale extends BaseEntity {
 
   @ManyToOne(() => PgProduct)
   @JoinColumn({ name: 'product_id' })
-  product: PgProduct;
+  product: PgProduct
 
-  @ManyToOne(() => PgProduct)
+  @ManyToOne(() => PgCustomer)
   @JoinColumn({ name: 'customer_id' })
-  customer: PgCustomer;
+  customer: PgCustomer
 }
