@@ -7,7 +7,9 @@ export class PgGetAllSaleRepository extends PgRepository implements GetAllSaleRe
   async getAll (): Promise<SaleModel[]> {
     const pgSaleRepo = this.getRepository(PgSale)
 
-    const sales = await pgSaleRepo.find()
+    const sales = await pgSaleRepo.find({
+      relations: ['product', 'customer']
+    })
 
     return sales
   }
