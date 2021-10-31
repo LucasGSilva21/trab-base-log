@@ -23,7 +23,9 @@ export class PgGetOneSaleRepository extends PgRepository implements GetOneSaleRe
 
     const pgSaleRepo = this.getRepository(PgSale)
 
-    const sale = await pgSaleRepo.findOne(id)
+    const sale = await pgSaleRepo.findOne(id, {
+      relations: ['product', 'customer']
+    })
 
     if (!sale) {
       throw new NotFoundError(id)
