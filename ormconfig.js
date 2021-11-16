@@ -6,7 +6,7 @@ module.exports = {
   port: process.env.DB_PORT,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  database: process.env.NODE_ENV === 'test' ? process.env.DB_DATABASE_TEST : process.env.DB_DATABASE,
   entities: ['src/infra/databases/postgres/entities/index.{js,ts}'],
   migrations: ['src/infra/databases/postgres/migrations/*.{js,ts}'],
   cli: {

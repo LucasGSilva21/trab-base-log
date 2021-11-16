@@ -54,4 +54,8 @@ export class PgConnection implements DbTransaction {
     if (this.query !== undefined) return this.query.manager.getRepository(entity)
     return getRepository(entity)
   }
+
+  async runMigrations (): Promise<void> {
+    await this.connection?.runMigrations()
+  }
 }
