@@ -4,7 +4,7 @@ import { Repository } from 'typeorm'
 import { PgConnection } from '../../../../src/infra/databases/postgres/helpers/connection'
 import { PgProduct } from '../../../../src/infra/databases/postgres/entities'
 
-describe('SignUp Routes', () => {
+describe('Add Product Route', () => {
   let connection: PgConnection
   let pgProductRepo: Repository<PgProduct>
 
